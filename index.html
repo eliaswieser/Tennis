@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <script type="application/javascript">
+    function draw() {
+      var canvas = document.getElementById('spielfläche');
+      if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+
+        ctx.strokeRect(0, 0, 600, 600)
+
+        ctx.fillStyle = 'rgba(100, 200, 200, 0.7)';
+        ctx.fillRect(10, 10, 50, 100);
+
+        ctx.fillStyle = 'rgba(0, 0, 200, 0.2)';
+        ctx.fillRect(540, 490, 50, 100);
+
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(250, 0, 0, 0.7)';
+        ctx.arc(300, 300, 25, 0, 2*Math.PI, true);
+        ctx.fill();
+      }
+    }
+  </script>
+ </head>
+ <body onload="draw();">
+   <canvas id="spielfläche" width="600" height="600"></canvas>
+ </body>
+</html>
