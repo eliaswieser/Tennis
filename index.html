@@ -3,10 +3,23 @@
  <head>
   <meta charset="utf-8"/>
   <script type="application/javascript">
+    function init() {
+      window.requestAnimationFrame(draw);
+    }
+    
+  
     function draw() {
       var canvas = document.getElementById('spielfläche');
       if (canvas.getContext) {
         var ctx = canvas.getContext('2d');
+
+        ctx.clearRect(0, 0, 600, 600);
+
+        var date = new Date();
+
+        ctx.font = "48px serif";
+        ctx.fillText( date , 100, 50);
+
 
         ctx.strokeRect(0, 0, 600, 600)
 
@@ -20,11 +33,14 @@
         ctx.fillStyle = 'rgba(250, 0, 0, 0.7)';
         ctx.arc(300, 300, 25, 0, 2*Math.PI, true);
         ctx.fill();
+
+
       }
+      window.requestAnimationFrame(draw);
     }
   </script>
  </head>
- <body onload="draw();">
+ <body onload="init();">
    <canvas id="spielfläche" width="600" height="600"></canvas>
  </body>
 </html>
