@@ -18,7 +18,7 @@
         var date = new Date();
 
         ctx.font = "48px serif";
-        ctx.fillText( date , 100, 50);
+        ctx.fillText(date.toLocaleTimeString(), 100, 50);
 
 
         ctx.strokeRect(0, 0, 600, 600)
@@ -43,4 +43,4 @@
  <body onload="init();">
    <canvas id="spielfläche" width="600" height="600"></canvas>
  </body>
-</html>
+</html>)
