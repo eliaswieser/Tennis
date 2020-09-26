@@ -3,10 +3,12 @@
  <head>
   <meta charset="utf-8"/>
   <script type="application/javascript">
+
+    var zeitLetzterFrame;
+
     function init() {
       window.requestAnimationFrame(draw);
     }
-    
   
     function draw() {
       var canvas = document.getElementById('spielfläche');
@@ -17,8 +19,12 @@
 
         var date = new Date();
 
-        ctx.font = "48px serif";
-        ctx.fillText(date.toLocaleTimeString(), 100, 50);
+        var zeitSeitLetztemFrame = date - zeitLetzterFrame;
+
+        var frameRate = 1000/zeitSeitLetztemFrame;
+
+        ctx.font = "25px serif";
+        ctx.fillText(Math.round(frameRate) + ' FPS', 100, 50);
 
 
         ctx.strokeRect(0, 0, 600, 600)
@@ -36,6 +42,9 @@
 
 
       }
+
+      zeitLetzterFrame = date;
+
       window.requestAnimationFrame(draw);
     }
   </script>
