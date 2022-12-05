@@ -3,7 +3,11 @@
  <head>
   <meta charset="utf-8"/>
   <script type="application/javascript">
-
+    const width = 1450;
+    const height = 700;
+    const playerWidth = 50;
+    const playerHeight = 100;
+    const distanceToBorder = 10;
     var zeitLetzterFrame;
 
     function init() {
@@ -15,7 +19,7 @@
       if (canvas.getContext) {
         var ctx = canvas.getContext('2d');
 
-        ctx.clearRect(0, 0, 600, 600);
+        ctx.clearRect(0, 0, width, height);
 
         var date = new Date();
 
@@ -27,17 +31,17 @@
         ctx.fillText(Math.round(frameRate) + ' FPS', 100, 50);
 
 
-        ctx.strokeRect(0, 0, 600, 600)
+        ctx.strokeRect(0, 0, width, height)
 
         ctx.fillStyle = 'rgba(100, 200, 200, 0.7)';
-        ctx.fillRect(10, 10, 50, 100);
+        ctx.fillRect(distanceToBorder, distanceToBorder, playerWidth, playerHeight);
 
         ctx.fillStyle = 'rgba(0, 0, 200, 0.2)';
-        ctx.fillRect(540, 490, 50, 100);
+        ctx.fillRect(width-distanceToBorder-playerWidth, height-distanceToBorder-playerHeight, playerWidth, playerHeight);
 
         ctx.beginPath();
         ctx.fillStyle = 'rgba(250, 0, 0, 0.7)';
-        ctx.arc(300, 300, 25, 0, 2*Math.PI, true);
+        ctx.arc(width/2, height/2, 25, 0, 2*Math.PI, true);
         ctx.fill();
 
 
@@ -50,6 +54,6 @@
   </script>
  </head>
  <body onload="init();">
-   <canvas id="spielfläche" width="600" height="600"></canvas>
+   <canvas id="spielfläche" width="1450" height="700"></canvas>
  </body>
 </html>
